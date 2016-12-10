@@ -1,9 +1,9 @@
-<div [ngClass]="['row stats-box', {'success':buildOverallState}]">
-  <h3>Build</h3>
-    <div [ngClass]="['col-md-6 debug-state']">
-        <img src="../../../assets/pc_img.png" alt="">
+<div [ngClass]="{'row stats-box':true, 'success':buildOverallState, 'fail':!buildOverallState}">
+  <h3 class="stats-title">Build</h3>
+    <div [ngClass]="['col-md-6','debug-state']">
+        <img src="./assets/pc_blue.png" alt="Debug">
     </div>
-    <div [ngClass]="['col-md-6 release-state']">
-        <img src="../../../assets/pc_img.png" alt="">
+    <div [ngClass]="['col-md-6','release-state']">
+        <img src="./assets/pc_blue.png" alt="Release">
     </div>
 </div>

@@ -9,19 +9,11 @@
     <span class="col-title">Functional Test</span>
 </div>
 <accordion [closeOthers]="true">
-    <accordion-group *ngFor="let item of dashboardItems" [heading]="item.type" [ngClass]="">
-    <!--[isOpen]="status.isFirstOpen"-->
-    <!--[isDisabled]="status.isFirstDisabled"-->
-    details Content goes here
-    <!--{{ group?.content }}-->
+    <accordion-group *ngFor="let item of dashboardItems" [heading]="item.type" [ngClass]=""
+                     [isOpen]="item.type === 'Build'">
+        <!--[isDisabled]="status.isFirstDisabled"-->
+        <dashboard-item-details [item]="item" class="container-fluid"></dashboard-item-details>
+        <!--{{ group?.content }}-->
     </accordion-group>
 
 </accordion>
-
-<div class="title">
-    <app-metrics-stats></app-metrics-stats>
-    <app-build-stats></app-build-stats>
-    <app-unit-test-stats></app-unit-test-stats>
-    <app-functional-test-stats></app-functional-test-stats>
-    <app-firewall-result></app-firewall-result>
-</div>

@@ -1,3 +1,23 @@
-<p>
-  metrics-stats works!
-</p>
+<div [ngClass]="{'row stats-box':true, 'success':metricsOverallState, 'fail':!metricsOverallState}">
+    <h3 class="stats-title">Metrics</h3>
+    <span class="arrow arrow-up">
+        <span class="arrow-text">50</span>
+    </span>
+    <span class="arrow arrow-right">
+        <span class="arrow-text">50</span>
+    </span>
+    <div class="label-text">
+        <span>Test</span>
+        <span>Maintainability</span>
+    </div>
+    <span class="arrow arrow-down">
+        <span class="arrow-text">50</span>
+    </span>
+    <span class="arrow arrow-left">
+        <span class="arrow-text">50</span>
+    </span>
+    <div class="label-text">
+        <span>Security</span>
+        <span>Workmanship</span>
+    </div>
+</div>

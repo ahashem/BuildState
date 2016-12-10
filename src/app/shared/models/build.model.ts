@@ -1,14 +1,12 @@
-import {
-  BuildState, MetricsStatistics, UnitTestStatistics, FunctionalTestStatistics,
-  BuildStatistics
-} from "./build.metadata";
+import { MetricsStatistics, UnitTestStatistics, FunctionalTestStatistics, BuildStatistics } from "./detailed-statistics.metadata";
 import {BuildItemSummary} from "./build-dashboard.metadata";
+import {BuildBuildState} from "./build.metadata";
 
 export class Build {
 
   constructor(protected id: string,
               public displayName: string,
-              public state: BuildState,
+              public state: BuildBuildState,
               public owner?: string,
               public timeStarted?: string, //Date Time
               public metricsStats?:MetricsStatistics,

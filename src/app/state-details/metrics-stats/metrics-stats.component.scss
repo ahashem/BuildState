@@ -1,0 +1,109 @@
+@import "../../../styles";
+
+$arrow-width: 40px;
+
+$arrow-height: $arrow-width;
+
+$arrow-color-normal: $secondary-color;
+$arrow-color-success: $success-color;
+$arrow-color-fail: $failure-color;
+
+@mixin arrow-body( $width , $height , $top , $left, $bg-color ) {
+  border: none;
+  background-color: $bg-color;
+  height: $height;
+  width: $width;
+  top: $top;
+  left: $left;
+}
+
+@mixin clearBody {
+  border: none;
+  width: 0;
+  height: 0;
+}
+
+// arrow
+@mixin arrow( $width , $height , $top , $left, $way, $border-color) {
+  left: $left;
+  top: $top;
+  border-width: $height $width;
+  border-#{$way}-color: $border-color;
+}
+
+.arrow {
+  width: $arrow-width;
+  height: $arrow-height;
+  position: relative;
+  display: inline-block;
+  margin: $arrow-height/4 $arrow-width/4;
+
+  &:before,
+  &:after {
+    content: '';
+    border-color: transparent;
+    border-style: solid;
+    position: absolute;
+  }
+}
+
+// arrow-up
+.arrow-up {
+  &:before {
+    @include arrow-body(50%, 50%, 50%, 50% - 50%/2, $arrow-color-success);
+  }
+  &:after {
+    @include arrow($arrow-width/2, $arrow-height/2, -50%, 0, bottom, $arrow-color-success);
+  }
+}
+
+// arrow-right
+.arrow-right {
+  &:before {
+    @include arrow-body(50%, 50%, 50% - 50%/2, 0, $arrow-color-normal);
+  }
+  &:after {
+    @include arrow($arrow-width/2, $arrow-height/2, 0, 50%, left, $arrow-color-normal);
+  }
+}
+
+// arrow-down
+.arrow-down {
+  &:before {
+    @include arrow-body(50%, 50%, 0, 50% - 50%/2, $arrow-color-fail);
+  }
+  &:after {
+    @include arrow($arrow-width/2, $arrow-height/2, 50%, 0, top, $arrow-color-fail);
+  }
+}
+
+// arrow-left
+.arrow-left {
+  &:before {
+    @include arrow-body(50%, 50%, 50% - 50%/2, 50%, $arrow-color-normal);
+  }
+  &:after {
+    @include arrow($arrow-width/2, $arrow-height/2, 0, -50%, right, $arrow-color-normal);
+  }
+}
+
+@mixin arrow-text($top, $right, $bottom, $left, $color ) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  text-align: center;
+  color: $color;
+  font-weight: bold;
+  z-index: 5;
+}
+
+.arrow-text {
+  .arrow-up &, .arrow-down & {
+    @include arrow-text(28%, 0, 0, 0, #fff);
+  }
+  .arrow-right &, .arrow-left & {
+    @include arrow-text(28%, 0, 0, 0, #000);
+  }
+}

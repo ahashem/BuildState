@@ -13,6 +13,7 @@ import { UnitTestStatsComponent } from './state-details/unit-test-stats/unit-tes
 import { FunctionalTestStatsComponent } from './state-details/functional-test-stats/functional-test-stats.component';
 import { FirewallResultComponent } from './state-results/firewall-result/firewall-result.component';
 import { BuildResultComponent } from './state-results/build-result/build-result.component';
+import { DashboardItemDetailsComponent } from './state-details/item-state-details/dashboard-item-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BuildResultComponent } from './state-results/build-result/build-result.
     UnitTestStatsComponent,
     FunctionalTestStatsComponent,
     FirewallResultComponent,
-    BuildResultComponent
+    BuildResultComponent,
+    DashboardItemDetailsComponent
   ],
   imports: [
     BrowserModule,
