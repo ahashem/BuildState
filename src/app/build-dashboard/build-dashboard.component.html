@@ -1,0 +1,12 @@
+<div class="title">
+
+</div>
+<accordion [closeOthers]="true">
+    <accordion-group *ngFor="let item of dashboardItems" [heading]="item.type" [ngClass]="">
+    <!--[isOpen]="status.isFirstOpen"-->
+    <!--[isDisabled]="status.isFirstDisabled"-->
+    details Content goes here
+    <!--{{ group?.content }}-->
+    </accordion-group>
+
+</accordion>

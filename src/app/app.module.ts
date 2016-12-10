@@ -6,10 +6,24 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {Ng2BootstrapModule} from "ng2-bootstrap";
 import {ChartsModule} from "ng2-charts/ng2-charts";
+import { BuildDashboardComponent } from './build-dashboard/build-dashboard.component';
+import { MetricsStatsComponent } from './state-details/metrics-stats/metrics-stats.component';
+import { BuildStatsComponent } from './state-details/build-stats/build-stats.component';
+import { UnitTestStatsComponent } from './state-details/unit-test-stats/unit-test-stats.component';
+import { FunctionalTestStatsComponent } from './state-details/functional-test-stats/functional-test-stats.component';
+import { FirewallResultComponent } from './state-results/firewall-result/firewall-result.component';
+import { BuildResultComponent } from './state-results/build-result/build-result.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BuildDashboardComponent,
+    MetricsStatsComponent,
+    BuildStatsComponent,
+    UnitTestStatsComponent,
+    FunctionalTestStatsComponent,
+    FirewallResultComponent,
+    BuildResultComponent
   ],
   imports: [
     BrowserModule,
