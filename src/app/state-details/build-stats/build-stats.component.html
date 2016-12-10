@@ -1,3 +1,9 @@
-<p>
-  build-stats works!
-</p>
+<div [ngClass]="['row stats-box', {'success':buildOverallState}]">
+  <h3>Build</h3>
+    <div [ngClass]="['col-md-6 debug-state']">
+        <img src="../../../assets/pc_img.png" alt="">
+    </div>
+    <div [ngClass]="['col-md-6 release-state']">
+        <img src="../../../assets/pc_img.png" alt="">
+    </div>
+</div>

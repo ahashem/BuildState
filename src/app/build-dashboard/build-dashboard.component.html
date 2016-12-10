@@ -1,5 +1,12 @@
 <div class="title">
-
+    <span class="col-title">Changelist / Build</span>
+    <span class="col-title">Owner</span>
+    <span class="col-title">Time Started</span>
+    <span class="col-title">State</span>
+    <span class="col-title">Metrics</span>
+    <span class="col-title">Build</span>
+    <span class="col-title">Unit Test</span>
+    <span class="col-title">Functional Test</span>
 </div>
 <accordion [closeOthers]="true">
     <accordion-group *ngFor="let item of dashboardItems" [heading]="item.type" [ngClass]="">
@@ -10,3 +17,11 @@
     </accordion-group>
 
 </accordion>
+
+<div class="title">
+    <app-metrics-stats></app-metrics-stats>
+    <app-build-stats></app-build-stats>
+    <app-unit-test-stats></app-unit-test-stats>
+    <app-functional-test-stats></app-functional-test-stats>
+    <app-firewall-result></app-firewall-result>
+</div>

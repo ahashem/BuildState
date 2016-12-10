@@ -5,9 +5,18 @@ export const MOCK_ITEMS: DashboardItemSummary[] = [
     type:'Build'
   },
   {
-    type:'Build'
+    type:'Firewall'
+  },
+  {
+    type:'Firewall'
   },
   {
     type:'Build'
+  },
+  {
+    type:'Firewall'
+  },
+  {
+    type:'Firewall'
   },
 ];
