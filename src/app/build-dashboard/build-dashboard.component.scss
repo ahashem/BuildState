@@ -1,9 +1,115 @@
-.title{
+@import "../../styles";
+
+$item-bg-color: #f1f1f1;
+$item-hover-color: #dbdbdb;
+$indicator-width: 55px;
+
+/*.title{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
   & > * {
     font-weight: bold;
+  }
+}*/
+
+.titles {
+  text-align: center;
+
+  & > .stat-indicator {
+    word-wrap: normal;
+  }
+
+  & > * {
+
+  }
+}
+
+.item-summary {
+  text-align: center;
+  & .col-stat {
+  }
+
+  &.pending {
+    color: $dimmed-color;
+  }
+  &.running {
+    color: $primary-color;
+  }
+  &.rejected, &.failed {
+    color: $failure-color;
+  }
+  &.accepted, &.succeed {
+    color: $success-color;
+  }
+}
+
+.dashboard-item .panel {
+  border-radius: 0;
+  margin-bottom: 15px;
+
+  & .panel-heading {
+    background-color: $item-bg-color;
+  }
+  & .panel-heading:hover {
+    background-color: $item-hover-color;
+  }
+
+  & a.accordion-toggle:hover {
+    text-decoration: none;
+  }
+  & a.accordion-toggle:focus {
+    outline: none !important;
+  }
+  & a.accordion-toggle {
+    text-decoration: none;
+  }
+}
+
+.dashboard-item {
+  &.pending .panel {
+    border: 2px solid $dimmed-color;
+    .panel-heading a.accordion-toggle {
+      cursor: default;
+    }
+    .panel-heading:hover {
+      background-color: $item-bg-color;
+    }
+  }
+  &.running .panel {
+    border: 2px solid $primary-color;
+  }
+  &.rejected .panel, &.failed .panel {
+    border: 2px solid $failure-color;
+  }
+  &.accepted .panel, &.succeed .panel {
+    border: 2px solid $success-color;
+  }
+
+  &.panel-open {
+    .panel .panel-heading {
+      background-color: transparent;
+    }
+    .panel .panel-body {
+      border-top: none;
+    }
+  }
+}
+
+.stat-indicator .indicator {
+  border: 2px solid $dimmed-color;
+  background-color: lighten($dimmed-color, 20%);
+  height: 33px;
+  width: $indicator-width;
+  margin: -8px 0 -16px 0;
+
+  &.success {
+    background-color: $success-color;
+  }
+
+  .dashboard-item .running & {
+    background-color: $primary-color;
+    width: $indicator-width * 0.75;
   }
 }

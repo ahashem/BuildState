@@ -1,18 +1,54 @@
-<div class="title">
-    <span class="col-title">Changelist / Build</span>
-    <span class="col-title">Owner</span>
-    <span class="col-title">Time Started</span>
-    <span class="col-title">State</span>
-    <span class="col-title">Metrics</span>
-    <span class="col-title">Build</span>
-    <span class="col-title">Unit Test</span>
-    <span class="col-title">Functional Test</span>
+<!--<div class="titles row">
+    <div class="stats-info col-md-8">
+        <span class="col-title col-md-3">Changelist / Build</span>
+        <span class="col-title col-md-3">Owner</span>
+        <span class="col-title col-md-3">Time Started</span>
+        <span class="col-title col-md-3">State</span>
+    </div>
+    <div class="stats-wrapper col-md-4">
+        <span class="stat-indicator col-md-3">Metrics</span>
+        <span class="stat-indicator col-md-3">Build</span>
+        <span class="stat-indicator col-md-3">Unit Test</span>
+        <span class="stat-indicator col-md-3">Functional Test</span>
+    </div>
+</div>-->
+<div class="row titles">
+    <span class="col-md-2">Changelist / Build</span>
+    <span class="col-md-1">Owner</span>
+    <span class="col-md-2">Time Started</span>
+    <span class="col-md-1">State</span>
+    <span class="col-md-1 stat-indicator">Metrics</span>
+    <span class="col-md-1 stat-indicator">Build</span>
+    <span class="col-md-2 stat-indicator">Unit Test</span>
+    <span class="col-md-2 stat-indicator">Functional Test</span>
 </div>
 <accordion [closeOthers]="true">
-    <accordion-group *ngFor="let item of dashboardItems" [heading]="item.type" [ngClass]=""
-                     [isOpen]="item.type === 'Build'">
-        <!--[isDisabled]="status.isFirstDisabled"-->
-        <dashboard-item-details [item]="item" class="container-fluid"></dashboard-item-details>
+    <accordion-group *ngFor="let item of dashboardItems" #itemGroup
+                     class="dashboard-item"
+                     [ngClass]="[getItemState(item.state).toLowerCase()]"
+                     [isDisabled]="getItemState(item.state).toLowerCase()==='pending'">
+        <div accordion-heading class="row item-summary" [ngClass]="[getItemState(item.state).toLowerCase()]">
+            <div class="col-md-2 col-stat">{{item.displayName}}</div>
+            <div class="col-md-1 col-stat">{{item.owner}}</div>
+            <div class="col-md-2 col-stat">{{item.timeStarted}}</div>
+            <div class="col-md-1 col-stat">{{getItemState(item.state)}}</div>
+            <div class="col-md-1 col-stat stat-indicator" *ngIf="!itemGroup?.isOpen">
+                <p class="indicator" [ngClass]="{'success': item.metricsStatsSummary}"></p>
+            </div>
+            <div class="col-md-1 col-stat stat-indicator" *ngIf="!itemGroup?.isOpen">
+                <p class="indicator" [ngClass]="{'success': item.buildStatsSummary}"></p>
+            </div>
+            <div class="col-md-2 col-stat stat-indicator" *ngIf="!itemGroup?.isOpen">
+                <p class="indicator" [ngClass]="{'success': item.unitTestStatsSummary}"></p>
+            </div>
+            <div class="col-md-2 col-stat stat-indicator" *ngIf="!itemGroup?.isOpen">
+                <p class="indicator" [ngClass]="{'success': item.functionalTestStatsSummary}"></p>
+            </div>
+        </div>
+        <dashboard-item-details [item]="item" class="container-fluid"
+                                *ngIf="getItemState(item.state).toLowerCase()!=='pending'">
+
+        </dashboard-item-details>
         <!--{{ group?.content }}-->
     </accordion-group>
 

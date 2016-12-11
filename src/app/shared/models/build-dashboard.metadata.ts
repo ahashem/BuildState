@@ -1,17 +1,16 @@
 
-type DashboardItemType = 'summary' | 'details';
-
+type DashboardItemState = 'summary' | 'details';
 
 export interface DashboardItem {
-  type: DashboardItemType,
+  state: DashboardItemState,
 }
 
 export interface DashboardItemSummary extends DashboardItem {
-  type: 'summary',
+  state: 'summary',
 }
 
 export interface DashboardItemDetails extends DashboardItem {
-  type: 'details',
+  state: 'details',
 }
 
 export interface DashboardItemView<TDashboardItem extends DashboardItem> {
@@ -26,8 +25,8 @@ let DashboardDetailedView: DashboardItemView<DashboardItemSummary> = {
   getDetails(){}
 };
 
-let strategies: {
-  [type: string]: DashboardItemView<DashboardItem>
+export const dashboardViewStrategies: {
+  [state: string]: DashboardItemView<DashboardItem>
 } = {
   summary: DashboardSummaryView,
   details: DashboardDetailedView

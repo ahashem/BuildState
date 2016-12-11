@@ -4,6 +4,7 @@ import {BuildBuildState} from "./build.metadata";
 export class Build {
 
   constructor(protected id: string,
+
               public displayName: string,
               public state: BuildBuildState,
               public owner?: string,
@@ -25,5 +26,9 @@ export class Build {
       unitTestStatsSummary: this.unitTestStats? this.unitTestStats.overallState : false,
       functionalTestStatsSummary: this.functionalTestStats? this.functionalTestStats.overallState : false,
     }
+  }
+
+  public getDetails(){
+    return this;
   }
 }

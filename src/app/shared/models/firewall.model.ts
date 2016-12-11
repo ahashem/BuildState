@@ -26,4 +26,8 @@ export class Firewall {
       functionalTestStatsSummary: this.functionalTestStats? this.functionalTestStats.overallState : false,
     }
   }
+
+  public getDetails(){
+    return this;
+  }
 }
