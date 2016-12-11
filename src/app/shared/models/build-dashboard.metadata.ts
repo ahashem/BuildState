@@ -1,37 +1,34 @@
-import {Build} from "./build.model";
-import {Firewall} from "./firewall.model";
-import {BuildResultComponent} from "../../state-results/build-result/build-result.component";
-import {FirewallResultComponent} from "../../state-results/firewall-result/firewall-result.component";
 
-type DashboardItemType = 'Build' | 'Firewall';
+type DashboardItemType = 'summary' | 'details';
 
-export interface DashboardItemSummary {
+
+export interface DashboardItem {
   type: DashboardItemType,
 }
 
-export interface BuildItemSummary extends DashboardItemSummary {
-  type: 'Build',
-  new(): Build
+export interface DashboardItemSummary extends DashboardItem {
+  type: 'summary',
 }
 
-export interface FirewallItemSummary extends DashboardItemSummary {
-  type: 'Firewall',
-  new(): Firewall
+export interface DashboardItemDetails extends DashboardItem {
+  type: 'details',
 }
 
-export interface DashboardItem {
-  itemType: DashboardItemType,
-  itemId:string,
-  //itemSummary:
+export interface DashboardItemView<TDashboardItem extends DashboardItem> {
+  getSummary?(target?: TDashboardItem);
+  getDetails?(target?: TDashboardItem);
 }
 
+let DashboardSummaryView: DashboardItemView<DashboardItemSummary> = {
+  getSummary(){}
+};
+let DashboardDetailedView: DashboardItemView<DashboardItemSummary> = {
+  getDetails(){}
+};
 
-
-/*
-export const itemTypesManager: {
-  [type: string]: DashboardItem<DashboardItemSummary>
+let strategies: {
+  [type: string]: DashboardItemView<DashboardItem>
 } = {
-  Build: BuildItemSummary,
-  Firewall: FirewallItemSummary
-};*/
-
+  summary: DashboardSummaryView,
+  details: DashboardDetailedView
+};

@@ -1,5 +1,4 @@
 import { MetricsStatistics, UnitTestStatistics, FunctionalTestStatistics, BuildStatistics } from "./detailed-statistics.metadata";
-import {BuildItemSummary} from "./build-dashboard.metadata";
 import {BuildBuildState} from "./build.metadata";
 
 export class Build {
@@ -13,8 +12,7 @@ export class Build {
               public buildStats?:BuildStatistics,
               public unitTestStats?:UnitTestStatistics,
               public functionalTestStats?:FunctionalTestStatistics
-  ) {
-  }
+  ) {}
 
   public getSummary(){
     return {

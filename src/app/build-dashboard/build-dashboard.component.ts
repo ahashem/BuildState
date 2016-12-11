@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DashboardItemSummary} from "../shared/models/build-dashboard.metadata";
+import {DashboardItemSummary, DashboardItem} from "../shared/models/build-dashboard.metadata";
 import {MOCK_ITEMS} from "../shared/mock-data/mock-build-dashboard";
 
 @Component({
@@ -9,7 +9,7 @@ import {MOCK_ITEMS} from "../shared/mock-data/mock-build-dashboard";
 })
 export class BuildDashboardComponent implements OnInit {
 
-  protected dashboardItems:DashboardItemSummary[] = MOCK_ITEMS;  //TODO: get from service
+  protected dashboardItems:any[] = MOCK_ITEMS;  //TODO: get from service
 
   constructor() { }
 

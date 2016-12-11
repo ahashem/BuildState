@@ -24,5 +24,4 @@ export interface FunctionalTestStatistics extends Statistics{
   testsPassed: number,
   testsFailed: number,
   codeCoverage: number,
-  overallState: boolean, //pass - fail
 }

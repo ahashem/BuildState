@@ -1,6 +1,6 @@
-import {DashboardItemSummary} from "../models/build-dashboard.metadata";
+import {DashboardItemSummary, DashboardItem} from "../models/build-dashboard.metadata";
 
-export const MOCK_ITEMS: DashboardItemSummary[] = [
+export const MOCK_ITEMS: any[] = [
   /*{
     type:'Build'
   },
